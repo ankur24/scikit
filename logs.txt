@@ -1,0 +1,11 @@
+Running Bag of words linear regression grid search:
+('best_params:', {'countvectorizer__min_df': 0.005, 'countvectorizer__max_df': 0.9})
+('best_score:', 0.4555078095234143)
+
+Running tfidf linear regression grid search:
+params = dict(tfidfvectorizer__min_df=[0.005,0.010, 0.015], tfidfvectorizer__max_df=[0.90, 0.95,1.0])
+
+('best_params:', {'tfidfvectorizer__min_df': 0.015, 'tfidfvectorizer__max_df': 0.95})
+('grid_scores:', [mean: -0.00680, std: 0.00505, params: {'tfidfvectorizer__min_df': 0.005, 'tfidfvectorizer__max_df': 0.9}, mean: -0.00671, std: 0.00505, params: {'tfidfvectorizer__min_df': 0.01, 'tfidfvectorizer__max_df': 0.9}, mean: -0.00665, std: 0.00506, params: {'tfidfvectorizer__min_df': 0.015, 'tfidfvectorizer__max_df': 0.9}, mean: -0.00674, std: 0.00495, params: {'tfidfvectorizer__min_df': 0.005, 'tfidfvectorizer__max_df': 0.95}, mean: -0.00664, std: 0.00495, params: {'tfidfvectorizer__min_df': 0.01, 'tfidfvectorizer__max_df': 0.95}, mean: -0.00657, std: 0.00494, params: {'tfidfvectorizer__min_df': 0.015, 'tfidfvectorizer__max_df': 0.95}, mean: -0.00672, std: 0.00497, params: {'tfidfvectorizer__min_df': 0.005, 'tfidfvectorizer__max_df': 1.0}, mean: -0.00672, std: 0.00501, params: {'tfidfvectorizer__min_df': 0.01, 'tfidfvectorizer__max_df': 1.0}, mean: -0.00666, std: 0.00501, params: {'tfidfvectorizer__min_df': 0.015, 'tfidfvectorizer__max_df': 1.0}])
+('best_score:', -0.0065748847562736822)
+
