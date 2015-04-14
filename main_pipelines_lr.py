@@ -26,28 +26,28 @@ for line in f:
 a_train, a_test, b_train, b_test = train_test_split(entries, stars, test_size=0.25, random_state=142)
 
 
-#pipe = make_pipeline(CountVectorizer(stop_words='english'), linear_model.LinearRegression())
-#params = dict(countvectorizer__min_df=[0.005,0.010], countvectorizer__max_df=[0.90,0.95,1.0])
-#grid_search = GridSearchCV(pipe, param_grid=params, n_jobs=10)
-#grid_search.fit([e['text'] for e in entries], stars)
-#print("best_params:",grid_search.best_params_)
-#print("grid_scores:", grid_search.grid_scores_)
-#print("best_score:", grid_search.best_score_)
-#joblib.dump(grid_search.best_estimator_, "unipipe_lr.pkl")
+pipe = make_pipeline(CountVectorizer(stop_words='english'), linear_model.LinearRegression())
+params = dict(countvectorizer__min_df=[0.005,0.010], countvectorizer__max_df=[0.90,0.95,1.0])
+grid_search = GridSearchCV(pipe, param_grid=params, n_jobs=10)
+grid_search.fit([e['text'] for e in entries], stars)
+print("best_params:",grid_search.best_params_)
+print("grid_scores:", grid_search.grid_scores_)
+print("best_score:", grid_search.best_score_)
+joblib.dump(grid_search.best_estimator_, "unipipe_lr.pkl")
 
 
 
-#pipe = make_pipeline(TfidfVectorizer(stop_words='english', min_df=0.005,max_df=1.0), linear_model.SGDRegressor(alpha=10))
-#params = dict(tfidfvectorizer__min_df=[0.005,0.010, 0.015], tfidfvectorizer__max_df=[0.90, 0.95,1.0])
-#grid_search = GridSearchCV(pipe, param_grid=params, n_jobs=10)
-#grid_search.fit([e['text'] for e in entries], stars)
-#print("best_params:",grid_search.best_params_)
-#print("grid_scores:", grid_search.grid_scores_)
-#print("best_score:", grid_search.best_score_)
-#joblib.dump(grid_search.best_estimator_, "tfidfpipe.pkl")
+pipe = make_pipeline(TfidfVectorizer(stop_words='english', min_df=0.005,max_df=1.0), linear_model.LinearRegression())
+params = dict(tfidfvectorizer__min_df=[0.005,0.010, 0.015], tfidfvectorizer__max_df=[0.90, 0.95,1.0])
+grid_search = GridSearchCV(pipe, param_grid=params, n_jobs=10)
+grid_search.fit([e['text'] for e in entries], stars)
+print("best_params:",grid_search.best_params_)
+print("grid_scores:", grid_search.grid_scores_)
+print("best_score:", grid_search.best_score_)
+joblib.dump(grid_search.best_estimator_, "tfidfpipe_lr.pkl")
 
 
-class TlinReg(linear_model.SGDRegressor):
+class TlinReg(linear_model.LinearRegression):
 
     def __init__(self, min_df=0.005,max_df=0.8):
         self.min_df = min_df
@@ -72,4 +72,4 @@ grid_search.fit(entries, stars)
 print("best_params:",grid_search.best_params_)
 print("grid_scores:", grid_search.grid_scores_)
 print("best_score:", grid_search.best_score_)
-joblib.dump(grid_search.best_estimator_, "bipipe.pkl")
+joblib.dump(grid_search.best_estimator_, "bipipe_lr.pkl")
