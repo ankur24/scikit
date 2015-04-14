@@ -23,7 +23,7 @@ for line in f:
     i+=1
 
 
-a_train, a_test, b_train, b_test = train_test_split(entries, stars, test_size=0.25, random_state=142)
+#a_train, a_test, b_train, b_test = train_test_split(entries, stars, test_size=0.25, random_state=142)
 
 
 pipe = make_pipeline(CountVectorizer(stop_words='english'), linear_model.LinearRegression())
