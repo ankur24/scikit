@@ -113,7 +113,7 @@ class BigramModel(NLPValidateMixin):
   def solution(self, review):
     #vecdata = self.vecmodel.transform([review["text"]])
     #pred=self.regrmodel.predict(vecdata)
-    pred=self.pipemodel.predict([review["text"])
+    pred=self.pipemodel.predict([review["text"]])
     return int(round(pred[0]))
 
 
