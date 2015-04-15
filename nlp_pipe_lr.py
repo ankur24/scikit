@@ -106,9 +106,9 @@ class BigramModel(NLPValidateMixin):
 
   Sometimes, reducing the dimension can be useful.  Because we are dealing with a sparse matrix, we have to use `TruncatedSVD`.  If we reduce the dimensions, we can use a more sophisticated models than linear ones.
   """
-  regrfilename = "bivec"
-  vecfilename = "bregr"
-  pipefilename = ""
+  regrfilename = ""
+  vecfilename = ""
+  pipefilename = "bipipe_lr.pkl"
   @list_or_dict
   def solution(self, review):
     #vecdata = self.vecmodel.transform([review["text"]])
